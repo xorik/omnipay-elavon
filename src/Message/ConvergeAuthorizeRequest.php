@@ -51,6 +51,6 @@ class ConvergeAuthorizeRequest extends ConvergeAbstractRequest
             ->setHeader('Content-Type', 'application/x-www-form-urlencoded')
             ->send();
 
-        return $this->createResponse($httpResponse->getBody());
+        return $this->createResponse($httpResponse->getBody(true));
     }
 }
