@@ -79,4 +79,13 @@ class ConvergeGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Elavon\Message\ConvergeGenerateTokenRequest', $parameters);
     }
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Elavon\Message\ConvergeVerifyPaymentRequest
+     */
+    public function completePurchase(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Elavon\Message\ConvergeVerifyPaymentRequest', $parameters);
+    }
 }
