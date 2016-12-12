@@ -53,6 +53,12 @@ The following gateways are provided by this package:
 
         if ($response->isSuccessful()) {
             // successful
+        } elseif ($response->isRedirect) {
+            // Set Callback URL for 3DSecure payments
+            $response->setCallbackUrl('https://your.website/callback_url');
+            
+            // You need to show user redirect form for 3DSecure payment:
+            echo $response->getRedirectResponse()->getContent();
         } else {
             throw new ApplicationException($response->getMessage());
         }
@@ -61,6 +67,19 @@ The following gateways are provided by this package:
     }
 
 ```
+
+## 3DSecure support
+
+For 3DS payments you also need to make callback page with code:
+
+```php
+    $response = $gateway->completePurchase($_POST)->send();
+    
+    if ($response->isSuccessful()) {
+        // successful
+    }
+```
+
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
 repository.
