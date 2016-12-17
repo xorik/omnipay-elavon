@@ -37,6 +37,11 @@ class ConvergeResponse extends AbstractResponse implements RedirectResponseInter
         return (isset($this->data['ssl_txn_id'])) ? $this->data['ssl_txn_id'] : null;
     }
 
+    public function getInvoiceNumber()
+    {
+        return (isset($this->data['ssl_invoice_number'])) ? $this->data['ssl_invoice_number'] : null;
+    }
+
     public function getMessage()
     {
         if (!$this->isSuccessful()) {
